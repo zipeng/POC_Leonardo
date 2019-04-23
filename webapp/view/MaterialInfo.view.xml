@@ -1,0 +1,110 @@
+
+<mvc:View
+	height="100%"
+controllerName="demo.POC_leonardo.controller.MaterialInfo"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+		xmlns:l="sap.ui.layout"
+		xmlns:uxap="sap.uxap"
+		
+	xmlns="sap.m">
+	<Page
+		id="idPage"
+		title="{MaterialStockInfo>/MaterialMaster/Product}" >
+		<!-- this CSS class add a standard spacing to all the page content -->
+
+		<content>
+			<ObjectHeader
+					
+				icon="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg"
+				backgroundDesign="Solid"
+				iconDensityAware="true"
+		iconAlt="{MaterialStockInfo>/MaterialMaster/Product}"
+		responsive="true"
+		title="{MaterialStockInfo>/MaterialMaster/Product}"
+		intro="{MaterialStockInfo>/MaterialMaster/Product_Text}"
+			
+				
+				
+				 >
+				<attributes>
+					
+			
+					<ObjectAttribute title="ProductType" text="{MaterialStockInfo>/MaterialMaster/ProductType}" />
+					<ObjectAttribute title="ProductGroup" text="{MaterialStockInfo>/MaterialMaster/ProductGroup}" />
+					<ObjectAttribute title="Weight" text="{MaterialStockInfo>/MaterialMaster/GrossWeight} {MaterialStockInfo>/MaterialMaster/WeightUnit}" />
+				</attributes>
+				<statuses>
+					<ObjectStatus title="StockNumber" text="{MaterialStockInfo>/MaterialMaster/MaterialVolume} {MaterialStockInfo>/MaterialMaster/VolumeUnit}" state="Success" />
+				</statuses>
+			</ObjectHeader>
+			<form:Form width="100%" editable="true" visible="true">
+                                <form:title>
+                                    <core:Title text="Form Title" level="Auto"/>
+                                </form:title>
+                                <form:formContainers>
+                                    <form:FormContainer visible="true">
+                                        <form:formElements>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Amount" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input type="Text" showValueHelp="false" enabled="true" visible="true" width="388.359375px" valueHelpOnly="false" maxLength="0"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Confidence" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Text text="0.90" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement visible="true">
+                                                <form:label>
+                                                    <Label text="Quality" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Text text="1.00" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                        <form:title/>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                                <form:layout>
+                                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                </form:layout>
+                            </form:Form>
+			<Panel headerText="A Panel" width="auto" class="sapUiResponsiveMargin">
+			 <content>
+                                    <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                                        <items>
+                                            <ToolbarSpacer width="100px"/>
+                                            <Image src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg" height="371px" width="370.640625px" visible="true" densityAware="false"/>
+                                            <ToolbarSpacer width="100px"/>
+                                            <Image src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg" height="371px" width="370.640625px" visible="true" densityAware="false"/>
+                                        </items>
+                                        <layoutData/>
+                                    </HBox>
+                                </content>
+			</Panel>
+			
+		
+			
+			
+			
+		</content>
+		<footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Post Good Reciept" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+	</Page>
+</mvc:View>

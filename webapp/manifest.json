@@ -1,0 +1,153 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "demo.POC_leonardo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"dataSources": {
+			"MD_PRODUCT_OP_SRV": {
+				"uri": "/HF3/sap/opu/odata/sap/MD_PRODUCT_OP_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "demo.POC_leonardo.view.demo",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "demo.POC_leonardo.i18n.i18n"
+				}
+			},
+			"demo": {
+				"type": "sap.ui.model.json.JSONModel",
+				"preload": true,
+				"uri": "model/demo.json"
+			},
+			"materialID": {
+				"type": "sap.ui.model.json.JSONModel",
+				"preload": true,
+				"uri": "model/materialID.json"
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "MD_PRODUCT_OP_SRV",
+				"preload": true
+			},
+			"MaterialNew": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "MD_PRODUCT_OP_SRV",
+				"preload": true
+			},
+			"MaterialStockInfo": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/MaterialStockInfo.json",
+				"preload": true
+			},
+			"CurrentPicture": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/CurrentPicture.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "demo.POC_leonardo.view",
+				"controlAggregation": "pages",
+				"controlId": "demo",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "Routedemo",
+				"pattern": "",
+				"target": ["Targetdemo"]
+			}, {
+				"pattern": "MaterialInfo/{appdata}",
+				"name": "MaterialInfo",
+				"target": ["MaterialInfo"]
+			}],
+			"targets": {
+				"Targetdemo": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "demo"
+				},
+				"MaterialInfo": {
+					"viewType": "XML",
+					"viewName": "MaterialInfo"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

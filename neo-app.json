@@ -1,0 +1,100 @@
+{
+  "authenticationMethod": "none",
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/Zipengml-dest",
+      "target": {
+        "type": "destination",
+        "name": "ZipengTrailML"
+      },
+      "description": "ML API destination"
+    },
+    {
+      "path": "/Zipengml_Production",
+      "target": {
+        "type": "destination",
+        "name": "ZipengProductionML"
+      },
+      "description": "ML API destination"
+    },
+    {
+      "path": "/Zipengml_strail",
+      "target": {
+        "type": "destination",
+        "name": "ZipengStrailML"
+      },
+      "description": "ML API destination"
+    },
+    {
+      "path": "/MLTocken",
+      "target": {
+        "type": "destination",
+        "name": "MLTocken"
+      },
+      "description": "ML API destination"
+    },
+    {
+      "path": "/MLTockenProduction",
+      "target": {
+        "type": "destination",
+        "name": "MLTocken_Production"
+      },
+      "description": "ML API destination Production"
+    },
+    {
+      "path": "/MLTocken2",
+      "target": {
+        "type": "destination",
+        "name": "MLTocken2"
+      },
+      "description": "ML API destination2"
+    },
+    {
+      "path": "/MLTockenStrail",
+      "target": {
+        "type": "destination",
+        "name": "MLTockenStrail"
+      },
+      "description": "ML API destination2"
+    },
+    {
+      "path": "/ml-dest",
+      "target": {
+        "type": "destination",
+        "name": "sapui5ml-api"
+      },
+      "description": "ML API destination"
+    },
+    {
+      "path": "/HF3",
+      "target": {
+        "type": "destination",
+        "name": "HF3"
+      },
+      "description": "test s/4hana"
+    }
+  ],
+  "sendWelcomeFileRedirect": true,
+  "headerWhiteList": [
+    "APIKey"
+  ]
+}
