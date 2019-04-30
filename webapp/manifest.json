@@ -16,6 +16,13 @@
 				"settings": {
 					"localUri": "localService/metadata.xml"
 				}
+			},
+			"MaterilaML_SRV": {
+				"uri": "/HF3/sap/opu/odata/sap/ZMLPOC1_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
 			}
 		},
 		"sourceTemplate": {
@@ -38,7 +45,10 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_belize"]
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -106,12 +116,31 @@
 				"settings": {},
 				"uri": "model/CurrentPicture.json",
 				"preload": false
+			},
+			"MaterialML": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "MaterilaML_SRV",
+				"preload": true
+			},
+			"materilaPic": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/materialPic.json",
+				"preload": false
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -123,15 +152,22 @@
 				"controlId": "demo",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "Routedemo",
-				"pattern": "",
-				"target": ["Targetdemo"]
-			}, {
-				"pattern": "MaterialInfo/{appdata}",
-				"name": "MaterialInfo",
-				"target": ["MaterialInfo"]
-			}],
+			"routes": [
+				{
+					"name": "Routedemo",
+					"pattern": "",
+					"target": [
+						"Targetdemo"
+					]
+				},
+				{
+					"pattern": "MaterialInfo/{appdata}",
+					"name": "MaterialInfo",
+					"target": [
+						"MaterialInfo"
+					]
+				}
+			],
 			"targets": {
 				"Targetdemo": {
 					"viewType": "XML",

@@ -1,4 +1,5 @@
 {
+	
   "url": "/ml-dest/imageclassification/classification",
   "method": "POST",
   "accept": "application/json",

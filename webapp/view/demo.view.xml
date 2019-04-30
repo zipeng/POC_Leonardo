@@ -69,7 +69,7 @@
               <unified:FileUploader buttonOnly="true" buttonText="Take Photo" sameFilenameAllowed="true" multiple="false"
                 fileType="{demo>/fileType}" mimeType="{demo>/mimeType}" typeMissmatch="fileTypeMissmatch" change="onPressImageClassifier" custom:mode="ajax"/>
             	
-            <Button text="testnavtoMaterial" type="Reject" icon="sap-icon://decline" width="auto" press="onNaveToMaterial"/>	
+            	
             </content>
                 
           </Toolbar>

@@ -40,6 +40,19 @@ sap.ui.define([
 			setModel : function (oModel, sName) {
 				return this.getView().setModel(oModel, sName);
 			},
+			
+			fnGetMaterialImageURL : function(sMaterial){
+				
+				var oMaterialImageModel= this.getModel("materilaPic");
+				var sPath="/"+sMaterial;
+				var sURL= oMaterialImageModel.getProperty(sPath);
+				return sURL;
+			},
+			
+			fnSetMaterialImageURL: function(sURL){
+				var oPicModel=this.getModel("CurrentPicture");
+				oPicModel.setProperty("/defaultURI", sURL);
+			},
 
 			/**
 			 * Getter for the resource bundle.

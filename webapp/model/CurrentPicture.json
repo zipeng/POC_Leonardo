@@ -1,9 +1,10 @@
 
 
 {
-  "URI": null,
+  "defaultURI": "https://lh3.googleusercontent.com/ux8KjzkjTSIhkrKVkYXFT5OS3L92RqFQLhl0oM1A8TMKSW8-SJGgNbfdrNk87n8KLjc7kZg7W7O1YehkxIuN69wr198g5NrmB8PnfTJMNt9BU-h3-7u3odpr5Q1krST9eKVPEUCA0WsRvBVrV2aYjbqy5jJfuXT4xbNXOJj5BcHHypTOGmMln4TtAb-TXz58KrwjWPtGLxB31rOiaif5KUzwbzJY26SLozSIJdmjbaGr6od5f0poyUbOP5cdF6qpmHeVpus2m6Lme3KbaSkJZar52hM1HitnCcxV7a7oD-H8E92koE2tqVqtThaLNj4COiq0sCNYrqbke1q1nTC1_dz_bwRV1BupzeplZs08pNomwuv0TIfTdg2qQJIk3xl8c5JNLWVLsLFZTRDY2k7KgO4ITpa7f7RHPdIpiwTlvIqfzbxNYnjYTxO0EykXIzIN0f9NhkavMJVRxZGPX9y5et14sWF5qf2paiY8QYllzvkxLzjgDFj6jW_O2lDHGhy81yEdzsvosSO5r-2CsV3Bj_Xxot99ADDK4oyYra9vTiBp4dvo5qSuqt-RIfxO8G_VtlRLhw1vKW2iCw04UvZFhK0ieCQAOceScxEww2OcjLimVROx6jdFLvcDVqVFTTzNSarrBFf5lq0PwleYe6US_Pg5W7SzaM8=w768-h1024-no",	
+  "URI": "https://photos.google.com/album/AF1QipOa4FQWaAsJ56lEMcTQMD3F3hiA3ZratrgfXbmu/photo/AF1QipNOKg4HWDtkLQrv_x7CyaBJjiyskauUFRMzRKmt",
   "MaterialID":null,
-  "Quality": null,
-  "Confident": null
+  "Quality": 0.9,
+  "Confident": 0.9
 
 }

@@ -55,9 +55,77 @@ sap.ui.define([
 	        	
 		 },
 		 
+		 fnGetMaterialStock: function(sCurrentMaterialID){
+		 var oMaterialMLModel=	this.getView().getModel("MaterialML");
+		//   var oMaterialMasterModel=	this.getView().getModel("materialmaster");
+		  
+		  var sURL="/MaterialStockSet('"+sCurrentMaterialID+"')";
+		  oMaterialMLModel.read(sURL, {
+					
+	        		
+	        		
+	        		"success": function(oData, oResponse) {
+	        		        				        				        			
+	        		console.log(oData);
+	        		// set model data
+	        	var oMatStockModel = this.getModel("MaterialStockInfo");
+	        		oMatStockModel.setProperty("/Stock",oData);
+	        			
+	        		}.bind(this),
+
+	        		"error": function(oError) { 
+	        		
+	        		}.bind(this) 
+				});
+	        	
+		 },
+		 
+		 fnpostGoodsreceipt: function(){
+		 	
+		 var sCurrentMaterial=this.getModel("MaterialStockInfo").getProperty("/MaterialMaster/Product");
+		 
+		 var sAmount=this.getModel("MaterialStockInfo").getProperty("/PostAmount");
+		 var oMaterialAmount={ 
+         "Matnr" : sCurrentMaterial, 
+         "Erfmg" : sAmount
+        };	
+		 var oMaterialMLModel=	this.getView().getModel("MaterialML");
+		//   var oMaterialMasterModel=	this.getView().getModel("materialmaster");
+		  
+		  var sURL="/GMSet";
+		  oMaterialMLModel.create(sURL,oMaterialAmount, {
+					
+	        		
+	        		
+	        		
+	        		"success": function(oData, oResponse) {
+	        		        				        				        			
+	        		console.log(success);
+	        		// set model data
+	        		this.fnGetMaterialStock(sCurrentMaterial);
+	        	
+	        			
+	        		}.bind(this),
+
+	        		"error": function(oError) { 
+	        			console.log("error");
+	        		this.fnGetMaterialStock(sCurrentMaterial);
+	        		}.bind(this) 
+				});
+	        	
+		 },
+		 
 		 fnInitCurrentMaterial: function(sCurrentMaterialID){
+		 	
+		 	var sURL=this.fnGetMaterialImageURL(sCurrentMaterialID);
+		 	
+		 
+		 	
+		 	this.fnSetMaterialImageURL(sURL);
+		 	
 		 	this.fnGetMaterialMasterData(sCurrentMaterialID);
 		 	// fnGet Stock Data
+		 	this.fnGetMaterialStock(sCurrentMaterialID);
 		 },
 		 
 		 fnQualityCheck: function(oEvent){
