@@ -1,7 +1,7 @@
 /* global JSZip:true */
 /* global saveAs:true */
 sap.ui.define([
-  "sap/ui/core/mvc/Controller",
+  'demo/POC_leonardo/controller/BaseController',
   'demo/POC_leonardo/model/formatter',
   "sap/m/MessageBox"
 ], function (Controller,formatter, MessageBox) {
@@ -161,6 +161,35 @@ onQualityChecknew: function (oControlEvent) {
   
 },
 
+onSelectionChange: function(oEvent){
+	
+	var oSelectedItem = oEvent.getParameter("listItem");
+   	var sLabel=oSelectedItem.oBindingContexts.demo.getObject().label;
+  var sScore=oSelectedItem.oBindingContexts.demo.getObject().score;
+  var sMaterialID = this.getView().getModel("materialID").getProperty("/"+sLabel);
+  
+  	var oCurrentPredictions=this.getView().getModel("demo").getProperty("/predictions")[0];
+  	
+    	this.getView().getModel("CurrentPicture").setProperty("/URI",oCurrentPredictions.contentUrl);
+    	this.getView().getModel("CurrentPicture").setProperty("/MaterialID",sMaterialID);
+    	this.getView().getModel("CurrentPicture").setProperty("/Confident",sScore);
+},
+
+
+
+onContinue: function(){
+
+  var sMaterialID = this.getView().getModel("CurrentPicture").getProperty("/MaterialID");
+  
+  this.fnCheckQuality(this,sMaterialID);
+    	
+  
+  //this.onNaveToMaterial(sMaterialID);
+},
+
+
+
+
 /* the following code is used by the Ajax & XHR methods only*/
 onQualityCheck: function (oControlEvent) {
   // start the busy indicator
@@ -290,7 +319,7 @@ fncallQualityModel: function(oController){
 	
 	
 },
-
+/*
 fncallModelnew: function(oController, file){
 	
 	  var url = "/Zipengml_Production/api/v2/image/classification/models/Materialnewtraining/versions/1";
@@ -332,7 +361,7 @@ fncallModelnew: function(oController, file){
 	
 },
 
-
+*/
 fncallModel: function(oController, file){
 	
 	  var url = "/Zipengml_strail/api/v2/image/classification/models/retrainwithnegative/versions/2";

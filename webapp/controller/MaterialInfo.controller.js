@@ -100,16 +100,17 @@ sap.ui.define([
 	        		
 	        		"success": function(oData, oResponse) {
 	        		        				        				        			
-	        		console.log(success);
+	        		console.log(oData);
 	        		// set model data
 	        		this.fnGetMaterialStock(sCurrentMaterial);
-	        	
+	        	this.fnCleanInput();
 	        			
 	        		}.bind(this),
 
 	        		"error": function(oError) { 
 	        			console.log("error");
 	        		this.fnGetMaterialStock(sCurrentMaterial);
+	        		this.fnCleanInput();
 	        		}.bind(this) 
 				});
 	        	
@@ -134,6 +135,7 @@ sap.ui.define([
 		 
 		onDisplay: function(oEvent) {
 			//this.removeAllMessages();
+			this.fnCleanInput();
 		    var sCurrentMaterialID=oEvent.getParameter("arguments").appdata;
 			var oCurrentMaterial = this.getCurrentMaterial();
 			// fn Quality Check
@@ -147,6 +149,16 @@ sap.ui.define([
 			
 		},
 
+onGoHome: function(oEvent){
+		this.getRouter().navTo("Routedemo");
+},
+
+
+fnCleanInput: function(){
+	var oModel=this.getModel("MaterialStockInfo");
+	oModel.setProperty("/PostAmount",null);
+	
+},
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).

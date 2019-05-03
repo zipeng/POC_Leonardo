@@ -102,7 +102,7 @@ controllerName="demo.POC_leonardo.controller.MaterialInfo"
                 <content>
                     <ToolbarSpacer width=""/>
                     <Button text="Post Good Reciept" type="Emphasized" press="fnpostGoodsreceipt" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" press="onGoHome" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
                 </content>
             </OverflowToolbar>
         </footer>

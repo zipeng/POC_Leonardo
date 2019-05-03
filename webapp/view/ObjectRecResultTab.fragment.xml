@@ -1,0 +1,47 @@
+<core:FragmentDefinition 
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" 
+	xmlns:table="sap.ui.table" 
+	 xmlns:micro="sap.suite.ui.microchart"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	
+				
+                
+										
+									
+                  
+                  
+      
+    				<Table id='ObjResultTab' width="100%" mode="SingleSelectMaster"  
+    				selectionChange="onSelectionChange"
+    				showSeparators="All" growing="true" growingScrollToLoad="true" enableBusyIndicator="true"
+		            	items="{ path: 'demo>results'}"			          
+		            >                
+		                <columns>
+							<Column width="auto" >
+								<Text text="Material" />
+							</Column>
+							<Column width="auto" >
+								<Text text="Confidence" />
+							</Column>							
+						  
+						</columns>
+						
+						<items>
+							<ColumnListItem type="Inactive">
+								<cells>
+								
+									<Link text="{
+                          path: 'demo>label', 
+						  formatter: '.formatter.fngetMaterialID' 
+                          }" href="https://www.google.com/search?q={demo>label}&amp;newwindow=1&amp;tbm=isch" target="search"/>
+									<micro:RadialMicroChart size="XS" fraction="{demo>score}" total="1" class="sapUiSmallMargin"/>
+								</cells>
+							</ColumnListItem>				
+						</items>
+					
+					</Table>
+	
+	
+</core:FragmentDefinition>	

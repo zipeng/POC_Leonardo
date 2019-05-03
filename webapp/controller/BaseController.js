@@ -53,6 +53,100 @@ sap.ui.define([
 				var oPicModel=this.getModel("CurrentPicture");
 				oPicModel.setProperty("/defaultURI", sURL);
 			},
+			
+			fnGetMaterialModelURL: function(sMaterial){
+				var oMaterialModelModel= this.getModel("materialModel");
+				var sPath="/"+sMaterial;
+				var oMaterialModel= oMaterialModelModel.getProperty(sPath);
+				var sURL="/Zipengml_Production/api/v2/image/classification/models/"+oMaterialModel.Name+"/versions/"+oMaterialModel.Version;
+			
+				return sURL;
+			},
+			
+			
+			fncallModelnew: function(oController, file){
+	
+	  var url = "/Zipengml_Production/api/v2/image/classification/models/Materialnewtraining/versions/1";
+  var type = this.getView().getModel("demo").getProperty("/method");
+  
+  var accept = this.getView().getModel("demo").getProperty("/accept");
+	this.formData = new window.FormData();
+
+
+  this.formData.append("files", file, file.name);
+	
+	var callbackAjaxSuccess = function (data, status, jqXHR) {
+    oController.processResults(oController, data);
+  };
+  var callbackAjaxError = function (jqXHR, status, message) {
+    oController.clearPredictions();
+    var error_message = {
+      "error": jqXHR.responseJSON.error
+    };
+    oController.processResults(oController, error_message);
+  };
+	
+	$.ajax({
+      type: type,
+      url: url,
+      headers: {
+        "Accept": accept,
+        "Authorization": oController.Tocken
+      },
+      success: callbackAjaxSuccess,
+      error: callbackAjaxError,
+      contentType: false,
+      async: true,
+      data: this.formData,
+      cache: false,
+      processData: false
+    });
+	
+	
+},
+			
+			
+			fnCheckQuality: function(oController,sMaterial){
+					  var url = this.fnGetMaterialModelURL(sMaterial);
+  var type = this.getView().getModel("demo").getProperty("/method");
+  
+  var accept = this.getView().getModel("demo").getProperty("/accept");
+
+
+
+  
+	
+
+	
+	$.ajax({
+      type: type,
+      url: url,
+      headers: {
+        "Accept": accept,
+        "Authorization": oController.Tocken
+      },
+      success: function (data, status, jqXHR) {
+           console.log(data);
+           this.fnsetQuality(data.predictions[0].results[0].label);
+            this.onNaveToMaterial(sMaterial);
+            }.bind(this),
+      error: function (jqXHR, status, message) {
+    this.onNaveToMaterial(sMaterial);
+           }.bind(this),
+      contentType: false,
+      async: true,
+      data: this.formData,
+      cache: false,
+      processData: false
+    });
+	
+			},
+			
+			
+	fnsetQuality: function(sQuality){
+		this.getView().getModel("CurrentPicture").setProperty("/Quality",sQuality);
+		
+	},		
 
 			/**
 			 * Getter for the resource bundle.
@@ -60,7 +154,7 @@ sap.ui.define([
 			 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 			 */
 			getResourceBundle : function () {
-				return this.getOwnerComponent().getModel("i18n").getResourceBundle();
+				
 			}
 
 		});

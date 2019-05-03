@@ -1,4 +1,4 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified" xmlns="sap.m"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"  xmlns:table="sap.ui.table" xmlns:unified="sap.ui.unified" xmlns="sap.m"
   xmlns:micro="sap.suite.ui.microchart" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
   controllerName="demo.POC_leonardo.controller.demo" displayBlock="true">
   <App id="demo">
@@ -12,43 +12,12 @@
                 
 										
 									
-                  <Image  src="{demo>contentUrl}" width= "100%"/>
+                  <Image  src="{demo>contentUrl}" />
                   <Label text="File name: {demo>name}" class="sapUiLargeMargin"/>
-                  <table:Table rows="{demo>results}" enableBusyIndicator="true" selectionMode="Single" visibleRowCount="5">
-                    <table:columns>
-                      <table:Column sortProperty="label" filterProperty="label">
-                        <Label text="Label"/>
-                        <table:template>
-                          <Link text="{
-                          path: 'demo>label', 
-						  formatter: '.formatter.fngetMaterialID' 
-                          }" href="https://www.google.com/search?q={demo>label}&amp;newwindow=1&amp;tbm=isch" target="search"/>
-                        </table:template>
-                      </table:Column>
-                      <table:Column sortProperty="score" filterProperty="score">
-                        <Label text="Score"/>
-                        <table:template>
-                          <micro:RadialMicroChart size="XS" fraction="{demo>score}" total="1" class="sapUiSmallMargin"/>
-                        </table:template>
-                      </table:Column>
-                      
-                      <table:Column visible="{= ${demo>/qualitybutton} === true}">
-                        <Label text="Check Quality"/>
-                        <table:template>
-                        	<Button  text="Check {
-                          path: 'demo>label', 
-						  formatter: '.formatter.fngetMaterialID' 
-                          } quality"
-								press="onQualityChecknew"
-							>
-					
-							</Button>
-                      
-                        </table:template>
-                      </table:Column>
-                      
-                    </table:columns>
-                  </table:Table>
+                  
+                  <core:Fragment fragmentName="demo.POC_leonardo.view.ObjectRecResultTab" type="XML"/>	
+                  
+                 
                 </VBox>
                 <content/>
               </ScrollContainer>
@@ -56,8 +25,8 @@
           </Carousel>
         </content>
         <footer>
-          <Toolbar width="100%">
-            <content>
+          <Bar>
+            <contentLeft>
               <unified:FileUploader visible="false" buttonOnly="true" buttonText="Standard Model" sameFilenameAllowed="true" multiple="false" fileType="{demo>/fileType}"
                 mimeType="{demo>/mimeType}" typeMissmatch="fileTypeMissmatch" change="fileUploaderChange" uploadComplete="fileUploaderComplete" name="files"
                 uploadUrl="{demo>/url}" useMultipart="true" sendXHR="true" uploadOnChange="true">
@@ -70,9 +39,14 @@
                 fileType="{demo>/fileType}" mimeType="{demo>/mimeType}" typeMissmatch="fileTypeMissmatch" change="onPressImageClassifier" custom:mode="ajax"/>
             	
             	
-            </content>
+            </contentLeft>
+            <contentRight>
+            	<Button id="Continue" text="Continue" 
+											
+						type="Accept"  width="auto" press="onContinue"/>
+            </contentRight>	
                 
-          </Toolbar>
+          </Bar>
         </footer>
       </Page>
     </pages>

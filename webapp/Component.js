@@ -26,7 +26,13 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-			this.setModel(models.createFrontendModel(),"Material")
+			this.setModel(models.createFrontendModel(),"Material");
+			
+			// set busy indicator
+			var oModel = this.getModel("MaterialML");
+			oModel.attachRequestSent(function(){sap.ui.core.BusyIndicator.show(300);});
+			oModel.attachRequestCompleted(function(){sap.ui.core.BusyIndicator.hide();});
+			
 		}
 	});
 });

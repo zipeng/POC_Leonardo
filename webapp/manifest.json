@@ -133,6 +133,12 @@
 				"settings": {},
 				"uri": "model/materialPic.json",
 				"preload": false
+			},
+			"materialModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/materialModel.json",
+				"preload": false
 			}
 		},
 		"resources": {
