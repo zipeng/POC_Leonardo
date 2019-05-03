@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+ 
+	<Dialog title="Message" type="Message" >
+		<content>
+			<Text text="{demo>/Message}" />
+		</content>
+		<beginButton>
+		 	<Button text="OK" press="fnCloseMessageDialog" type="Accept" icon="sap-icon://accept"/>
+		</beginButton>
+		
+	</Dialog>
+ 
+</core:FragmentDefinition>

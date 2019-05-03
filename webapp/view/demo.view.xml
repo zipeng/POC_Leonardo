@@ -10,10 +10,14 @@
               <ScrollContainer height="100%" width="100%" horizontal="true" vertical="true" focusable="true">
                 <VBox alignContent="Center" alignItems="Center">
                 
-										
+				<Panel  width="auto" class="sapUiResponsiveMargin">
+			 <content>
+                               <Image densityAware="false" decorative="false" height="371px"  src="{demo>contentUrl}" />      
+                                </content>
+			</Panel>						
 									
-                  <Image  src="{demo>contentUrl}" />
-                  <Label text="File name: {demo>name}" class="sapUiLargeMargin"/>
+                  
+                  
                   
                   <core:Fragment fragmentName="demo.POC_leonardo.view.ObjectRecResultTab" type="XML"/>	
                   

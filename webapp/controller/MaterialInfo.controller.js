@@ -102,18 +102,26 @@ sap.ui.define([
 	        		        				        				        			
 	        		console.log(oData);
 	        		// set model data
+	        		var sMessage="Success! DocumentNr:"+oData.MatDoc;
+	        		this.fnSetMessage(sMessage);
 	        		this.fnGetMaterialStock(sCurrentMaterial);
 	        	this.fnCleanInput();
-	        			
+	        			this.fnOpenMessageDialog();
 	        		}.bind(this),
 
-	        		"error": function(oError) { 
+	        		"error": function(oError,oMessage) { 
 	        			console.log("error");
+	        		this.fnSetMessage(oError.responseText);	
 	        		this.fnGetMaterialStock(sCurrentMaterial);
 	        		this.fnCleanInput();
+	        		this.fnOpenMessageDialog();
 	        		}.bind(this) 
 				});
 	        	
+		 },
+		 
+		 fnSetMessage: function(sMessage){
+		 	this.getModel("demo").setProperty("/Message",sMessage);
 		 },
 		 
 		 fnInitCurrentMaterial: function(sCurrentMaterialID){

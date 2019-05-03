@@ -51,7 +51,7 @@ controllerName="demo.POC_leonardo.controller.MaterialInfo"
                                                     <Label text="Amount" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
                                                 </form:label>
                                                 <form:fields>
-                                                    <Input type="Text" showValueHelp="false" value="{MaterialStockInfo>/PostAmount}" enabled="true" visible="true" width="388.359375px" valueHelpOnly="false" maxLength="0"/>
+                                                    <Input type="Text" showValueHelp="false" value="{MaterialStockInfo>/PostAmount}" enabled="true" visible="true" valueHelpOnly="false" maxLength="0"/>
                                                 </form:fields>
                                             </form:FormElement>
                                             <form:FormElement visible="true">
@@ -83,9 +83,9 @@ controllerName="demo.POC_leonardo.controller.MaterialInfo"
                                     <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
                                         <items>
                                             <ToolbarSpacer width="100px"/>
-                                            <Image src="{CurrentPicture>/defaultURI}" height="371px" width="370.640625px" visible="true" densityAware="false"/>
+                                            <Image src="{CurrentPicture>/defaultURI}" height="371px"  visible="true" densityAware="false"/>
                                             <ToolbarSpacer width="100px"/>
-                                            <Image src="{CurrentPicture>/URI}" height="371px" width="370.640625px" visible="true" densityAware="false"/>
+                                            <Image src="{CurrentPicture>/URI}" height="371px"  visible="true" densityAware="false"/>
                                         </items>
                                         <layoutData/>
                                     </HBox>

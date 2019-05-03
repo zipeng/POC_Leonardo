@@ -146,7 +146,24 @@ sap.ui.define([
 	fnsetQuality: function(sQuality){
 		this.getView().getModel("CurrentPicture").setProperty("/Quality",sQuality);
 		
-	},		
+	},	
+	
+		        fnOpenMessageDialog:function(){
+				
+				this.MessageDialog = sap.ui.xmlfragment("demo.POC_leonardo.view.MessageDialog", this);
+				this.getView().addDependent(this.MessageDialog); 
+			    
+				this.MessageDialog.open();
+			},
+			
+			
+			/**
+			 * Close Launchpad dialog
+			 */
+			fnCloseMessageDialog: function() {
+				this.MessageDialog.close();
+			},
+			
 
 			/**
 			 * Getter for the resource bundle.
